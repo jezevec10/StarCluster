@@ -156,6 +156,12 @@ INSTANCE_TYPES = {
     'c4.2xlarge': ['x86_64'],
     'c4.4xlarge': ['x86_64'],
     'c4.8xlarge': ['x86_64'],
+    'c5.large': ['x86_64'],
+    'c5.xlarge': ['x86_64'],
+    'c5.2xlarge': ['x86_64'],
+    'c5.4xlarge': ['x86_64'],
+    'c5.9xlarge': ['x86_64'],
+    'c5.18xlarge': ['x86_64'],
     'i2.xlarge': ['x86_64'],
     'i2.2xlarge': ['x86_64'],
     'i2.4xlarge': ['x86_64'],
@@ -192,6 +198,9 @@ M4_COMPUTE_TYPES = ['c4.large', 'c4.xlarge', 'c4.2xlarge', 'c4.4xlarge',
                     'c4.8xlarge', 'm4.large', 'm4.xlarge', 'm4.2xlarge',
                     'm4.4xlarge', 'm4.10xlarge', 'm4.16xlarge']
 
+M5_COMPUTE_TYPES = ['c5.large', 'c5.xlarge', 'c5.2xlarge', 'c5.4xlarge',
+                    'c5.9xlarge', 'c5.18xlarge']
+
 I2_STORAGE_TYPES = ['i2.xlarge', 'i2.2xlarge', 'i2.4xlarge', 'i2.8xlarge']
 
 DENSE_STORAGE_TYPES = ['d2.xlarge', 'd2.2xlarge', 'd2.4xlarge', 'd2.8xlarge']
@@ -201,7 +210,7 @@ HVM_ONLY_TYPES = (CLUSTER_COMPUTE_TYPES + CLUSTER_GPU_TYPES +
                   T2_INSTANCE_TYPES + DENSE_STORAGE_TYPES)
 
 HVM_TYPES = (HVM_ONLY_TYPES + HI_IO_TYPES + HI_STORAGE_TYPES + SEC_GEN_TYPES +
-             M3_COMPUTE_TYPES + M4_COMPUTE_TYPES)
+             M3_COMPUTE_TYPES + M4_COMPUTE_TYPES + M5_COMPUTE_TYPES)
 
 EBS_ONLY_TYPES = T1_INSTANCE_TYPES + T2_INSTANCE_TYPES
 
@@ -211,7 +220,7 @@ EBS_ONLY_TYPES = T1_INSTANCE_TYPES + T2_INSTANCE_TYPES
 # migrating folks away from this type in favor of cc2.8xlarge but the type
 # still works for some older accounts.
 PLACEMENT_GROUP_TYPES = (M3_COMPUTE_TYPES + M4_COMPUTE_TYPES + HVM_ONLY_TYPES +
-                         HI_IO_TYPES + HI_STORAGE_TYPES)
+                         HI_IO_TYPES + HI_STORAGE_TYPES + M5_COMPUTE_TYPES)
 # T2 instances are HVM_ONLY_TYPES however they're not compatible with placement
 # groups so remove them from the list
 for itype in T2_INSTANCE_TYPES:
